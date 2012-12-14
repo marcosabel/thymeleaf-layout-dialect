@@ -1,11 +1,10 @@
 package nz.net.ultraq.web.thymeleaf;
 
-import org.thymeleaf.dialect.AbstractDialect;
-import org.thymeleaf.processor.IProcessor;
-import org.thymeleaf.processor.document.ProcessAllNodesDocumentProcessor;
-
 import java.util.HashSet;
 import java.util.Set;
+
+import org.thymeleaf.dialect.AbstractDialect;
+import org.thymeleaf.processor.IProcessor;
 
 /**
  * Dialect for making use of template/layout decorator pages with Thymeleaf.
