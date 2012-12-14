@@ -1,8 +1,8 @@
-
 package nz.net.ultraq.web.thymeleaf;
 
 import org.thymeleaf.dialect.AbstractDialect;
 import org.thymeleaf.processor.IProcessor;
+import org.thymeleaf.processor.document.ProcessAllNodesDocumentProcessor;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -14,42 +14,42 @@ import java.util.Set;
  */
 public class LayoutDialect extends AbstractDialect {
 
-	public static final String LAYOUT_NAMESPACE = "http://www.ultraq.net.nz/web/thymeleaf/layout";
+    public static final String LAYOUT_NAMESPACE = "http://www.ultraq.net.nz/web/thymeleaf/layout";
 
-	static final String LAYOUT_PREFIX = "layout";
+    static final String LAYOUT_PREFIX = "layout";
 
-	/**
-	 * Return the layout prefix.
-	 * 
-	 * @return <tt>layout</tt>
-	 */
-	@Override
-	public String getPrefix() {
+    /**
+     * Return the layout prefix.
+     * 
+     * @return <tt>layout</tt>
+     */
+    @Override
+    public String getPrefix() {
 
-		return LAYOUT_PREFIX;
-	}
+        return LAYOUT_PREFIX;
+    }
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public Set<IProcessor> getProcessors() {
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Set<IProcessor> getProcessors() {
 
-		HashSet<IProcessor> processors = new HashSet<IProcessor>();
-		processors.add(new DecoratorProcessor());
-		processors.add(new IncludeProcessor());
-		processors.add(new FragmentProcessor());
-		return processors;
-	}
+        HashSet<IProcessor> processors = new HashSet<IProcessor>();
+        processors.add(new DecoratorProcessor());
+        processors.add(new IncludeProcessor());
+        processors.add(new FragmentProcessor());
+        return processors;
+    }
 
-	/**
-	 * This dialect is not lenient.
-	 * 
-	 * @return <tt>false</tt>
-	 */
-	@Override
-	public boolean isLenient() {
+    /**
+     * This dialect is not lenient.
+     * 
+     * @return <tt>false</tt>
+     */
+    @Override
+    public boolean isLenient() {
 
-		return false;
-	}
+        return false;
+    }
 }

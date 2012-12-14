@@ -14,6 +14,7 @@ import org.thymeleaf.fragment.FragmentAndTarget;
 import org.thymeleaf.processor.ProcessorResult;
 import org.thymeleaf.standard.fragment.StandardFragmentProcessor;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -191,6 +192,16 @@ public class DecoratorProcessor extends AbstractContentProcessor {
 		if (decoratordocument.hasDocType()) {
 			((Document)element.getParent()).setDocType(decoratordocument.getDocType());
 		}
+		List<Node> nodes = decoratordocument.getChildren();
+
+		for (Node node: nodes){
+		    if (node.equals(decoratorhtmlelement)) {
+		        break;
+		    }
+		    ((Document)element.getParent()).insertBefore(element.getParent().getFirstElementChild(), node);
+		    
+		}
+		    
 		pullTargetContent(element, decoratorhtmlelement);
 
 		return ProcessorResult.OK;
